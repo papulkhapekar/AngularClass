@@ -6,17 +6,24 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CourseModule } from './course/course.module';
 import { StarComponent } from './shared/star/star.component';
+import { HeaderComponent } from './header/header.component';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    StarComponent
+    StarComponent,
+    HeaderComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CourseModule
+    CourseModule,
+    AppRoutingModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
