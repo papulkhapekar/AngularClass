@@ -14,11 +14,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let course of cousrses">
+                <tr *ngFor="let course of courses">
                     <td><img [src]="course.imageUrl" width="50" *ngIf="ImageVisible"></td>
                     <td>{{course.courseName | uppercase}}</td>
                     <td>{{course.nextBatchDate | date: 'dd-MMM-yyyy'}}</td>
-                    <td>{{course.price | currency: 'INR ' : false: '3.2'}}</td>
+                    <td>{{course.price | currency: 'INR ' : 'symbol': '3.2-3'}}</td>
                     <td>{{course.starRating}}</td>
                 </tr>
             </tbody>
