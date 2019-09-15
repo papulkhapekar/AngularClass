@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from '../course.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-course-list',
@@ -7,27 +8,49 @@ import { CourseService } from '../course.service';
   styleUrls: ['./course-list.component.css']
 })
 export class CourseListComponent implements OnInit {
-ImageVisible = false;
+
+  imageVisible = false;
   courses;
-  
-  constructor(private courseService: CourseService) { }
+  message: string;
+
+  constructor(private courseService: CourseService, private router:Router) {
+  }
 
   ngOnInit() {
     //this.courses = this.courseService.getCourses();
     this.courseService.getCourses()
-      .subscribe(
-        responce =>{
-          this.courses = responce;       
-         },
-         error =>
-         {
-           console.log('error occured', error);
-         }
-      )
+        .subscribe(
+          response => {
+            this.courses = response;
+            var coursesData = [];
+            response.forEach(
+              item => {
+                let course;
+                course = item.payload.val();
+                course.courseId = item.payload.key;
+                coursesData.push(course);
+              }
+            );
+            this.courses = coursesData;
+            console.log('Courses', this.courses);
+          },
+          error => {
+            console.log('Error occured', error);
+          }
+        )
   }
 
-  ShowImage()
-  {
-    this.ImageVisible = !this.ImageVisible;
+  showImage() {
+    this.imageVisible = !this.imageVisible;
+
   }
+
+  ratingRecieved(event) {
+    this.message = event;
+  }
+  
+  showCourseDetails(courseId) {
+    this.router.navigate(['/courses/details', courseId]);
+  }
+
 }
