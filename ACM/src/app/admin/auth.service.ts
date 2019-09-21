@@ -19,9 +19,13 @@ export class AuthService {
   logout() {
     return this.appAuth.auth.signOut();
   }
-  
+
   isLoggedIn() {
     return this.appAuth.authState;
+  }
+
+  isLoggedInState() {
+    return this.appAuth.auth.currentUser;
   }
 
 }

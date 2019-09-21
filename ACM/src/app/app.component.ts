@@ -15,9 +15,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.auth.isLoggedIn()
         .subscribe(
-            response => {
-              this.isLoggedIn = response ? true : false
-            },
+            response => this.isLoggedIn = response ? true : false,
             error => console.log('Error occurred', error)
         )
   }

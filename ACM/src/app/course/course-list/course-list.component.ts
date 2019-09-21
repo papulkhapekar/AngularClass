@@ -13,7 +13,7 @@ export class CourseListComponent implements OnInit {
   courses;
   message: string;
 
-  constructor(private courseService: CourseService, private router:Router) {
+  constructor(private courseService: CourseService, private router: Router) {
   }
 
   ngOnInit() {
@@ -21,7 +21,6 @@ export class CourseListComponent implements OnInit {
     this.courseService.getCourses()
         .subscribe(
           response => {
-            this.courses = response;
             var coursesData = [];
             response.forEach(
               item => {
@@ -48,7 +47,7 @@ export class CourseListComponent implements OnInit {
   ratingRecieved(event) {
     this.message = event;
   }
-  
+
   showCourseDetails(courseId) {
     this.router.navigate(['/courses/details', courseId]);
   }
