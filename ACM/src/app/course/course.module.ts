@@ -9,7 +9,7 @@ import { EditCourseComponent } from './edit-course/edit-course.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SummaryPipe } from './shared/summary.pipe';
-import { HighlighterDirective } from './shared/highlighter.directive';
+import { HighlightDirective } from './shared/highlighter.directive';
 
 
 
@@ -20,7 +20,7 @@ import { HighlighterDirective } from './shared/highlighter.directive';
     CourseDetailsComponent,
     EditCourseComponent,
     SummaryPipe,
-    HighlighterDirective
+    HighlightDirective
   ],
   imports: [
     CommonModule,
@@ -28,6 +28,6 @@ import { HighlighterDirective } from './shared/highlighter.directive';
     RouterModule,
     ReactiveFormsModule
   ],
-  exports: [ CourseListComponent ]
+  exports: [ CourseListComponent, HighlightDirective ]
 })
 export class CourseModule { }

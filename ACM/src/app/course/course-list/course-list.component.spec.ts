@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CourseListComponent } from './course-list.component';
+import { StarComponent } from 'src/app/shared/star/star.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('CourseListComponent', () => {
   let component: CourseListComponent;
@@ -8,7 +10,9 @@ describe('CourseListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CourseListComponent ]
+      imports:[HttpClientModule],
+      declarations: [ CourseListComponent,
+      StarComponent ]
     })
     .compileComponents();
   }));
