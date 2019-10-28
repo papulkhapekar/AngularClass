@@ -46,6 +46,7 @@ describe('CourseListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
   it('should show image on click of show image button', ()=> {
     component.showImage();
     expect(component.imageVisible).toBeTruthy();
